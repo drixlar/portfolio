@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "installCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install --no-optional --shamefully-hoist --no-frozen-lockfile",
+  "buildCommand": "pnpm --filter @workspace/med-lamari-portfolio run build",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "artifacts/med-lamari-portfolio/dist" }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/artifacts/med-lamari-portfolio/dist/index.html" }
+  ]
+}
