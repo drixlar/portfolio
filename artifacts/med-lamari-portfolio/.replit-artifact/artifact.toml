@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Med Lamari — Full-Stack Engineer"
+description = "A premium bilingual personal portfolio for Med Lamari, a Tunisian Full-Stack Software Engineer specializing in Java, Spring Boot, Angular, Node.js, microservices, REST APIs, and modern web development."
+version = "1.0.0"
+id = "artifacts/med-lamari-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23910
+
+[services.development]
+run = "pnpm --filter @workspace/med-lamari-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/med-lamari-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/med-lamari-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23910"
+BASE_PATH = "/"

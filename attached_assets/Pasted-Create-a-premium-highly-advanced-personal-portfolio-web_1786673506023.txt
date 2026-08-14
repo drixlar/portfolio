@@ -1,0 +1,679 @@
+Create a **premium, highly advanced personal portfolio website for me**, using the **CV I have attached to this prompt as the single source of truth**.
+
+First, carefully analyze my attached CV and extract my:
+
+* Name
+* Professional title
+* Professional summary
+* Work experience
+* Companies
+* Responsibilities
+* Technologies
+* Technical skills
+* Education
+* Certifications
+* Languages
+* Projects
+* Contact/social information when available
+
+**Do not invent, modify, or assume professional experience that is not present in my CV.**
+
+The portfolio must present me as a serious **Full-Stack Software Engineer** targeting professional opportunities in Europe and internationally.
+
+## DESIGN DIRECTION
+
+Create a portfolio that feels like a **premium software-engineering product**, not a standard developer template.
+
+Visual identity:
+
+* Modern
+* Futuristic
+* Professional
+* Elegant
+* Dark technology aesthetic
+* High-quality typography
+* Sophisticated animations
+* Subtle gradients
+* Glassmorphism used carefully
+* Fine grid/network patterns
+* Code-inspired visual elements
+* Clean spacing
+* Strong visual hierarchy
+
+The visual theme must be related to:
+
+**Software Engineering / Full-Stack Development / APIs / Microservices / Cloud / Architecture / Modern Web Development**
+
+Avoid:
+
+* Generic portfolio templates
+* Excessive neon/cyberpunk aesthetics
+* Gaming-style interfaces
+* Generic stock photography
+* Excessive animations
+* Huge blocks of text
+
+The final result should feel like:
+
+**"A premium SaaS product designed by a professional software engineer."**
+
+---
+
+# HERO SECTION
+
+Create a visually impressive hero section.
+
+Display my:
+
+**Name**
+
+and immediately underneath:
+
+**Professional Title**
+
+Use the exact professional positioning from my CV.
+
+Create a strong professional introduction based on my CV.
+
+Add CTA buttons:
+
+* View My Experience
+* View Projects
+* Contact Me
+* Download CV
+
+Create an advanced animated visual representing software engineering.
+
+Possible visual:
+
+* Animated code
+* API requests
+* Microservices architecture
+* Frontend → Backend → Database visualization
+* Floating technology icons
+* Developer terminal
+* Connected nodes
+* Abstract 3D architecture
+
+The hero should immediately communicate that I am a **Full-Stack Software Engineer**.
+
+---
+
+# MULTILINGUAL SUPPORT
+
+The website MUST be fully multilingual.
+
+Languages:
+
+🇬🇧 **English**
+🇫🇷 **Français**
+
+Create a language switcher in the navbar.
+
+The user must be able to switch between English and French instantly.
+
+IMPORTANT:
+
+Translate the **entire website**, not just the navbar.
+
+Translate:
+
+* Hero
+* About
+* Experience
+* Skills
+* Projects
+* Education
+* Certifications
+* Contact
+* Buttons
+* Navigation
+* Footer
+* Labels
+* UI messages
+
+English should sound natural and professional for international recruiters.
+
+French should sound natural and professional for French recruiters.
+
+Do not use literal/awkward machine-style translations.
+
+Default language should be **English**.
+
+---
+
+# NAVIGATION
+
+Create a sticky modern navbar.
+
+Sections:
+
+* Home
+* About
+* Experience
+* Skills
+* Projects
+* Education
+* Certifications
+* Contact
+
+Include:
+
+**EN / FR**
+
+language switcher.
+
+Navbar should:
+
+* Be transparent initially
+* Become blurred/glass-like when scrolling
+* Have a subtle active-section indicator
+* Animate smoothly
+* Have a responsive mobile menu
+
+Create a minimalist **ML** monogram/logo based on my initials.
+
+---
+
+# ABOUT SECTION
+
+Create an elegant and visually interesting About section based entirely on my CV.
+
+Do not simply copy the CV paragraph.
+
+Transform the information into a concise professional presentation.
+
+Add animated statistics/cards based ONLY on facts actually present in the CV.
+
+Examples of possible metrics:
+
+* Years of experience
+* Number of technologies
+* Professional roles
+* Projects
+* Certifications
+
+Only display statistics that can be accurately derived from the CV.
+
+Use subtle animated counters.
+
+---
+
+# EXPERIENCE SECTION
+
+Create a sophisticated interactive professional timeline.
+
+Extract **all professional experiences from the attached CV**.
+
+Do not omit relevant positions.
+
+For every experience display:
+
+* Job title
+* Company
+* Location
+* Dates
+* Description
+* Responsibilities
+* Technologies
+
+Use an expandable/collapsible experience design.
+
+The timeline should animate as the user scrolls.
+
+Each experience should have technology badges.
+
+Example visual:
+
+`Company`
+↓
+`Role`
+↓
+`Responsibilities`
+↓
+`Technology Stack`
+
+Make the experience section one of the strongest sections of the portfolio.
+
+---
+
+# SKILLS SECTION
+
+Analyze the CV and automatically organize the technologies into logical categories.
+
+Possible categories:
+
+* Frontend
+* Backend
+* Databases
+* Programming Languages
+* DevOps
+* Testing
+* Tools
+* Other technologies
+
+Only use technologies actually mentioned in my CV.
+
+Create interactive technology cards.
+
+On hover:
+
+* Technology icon
+* Technology name
+* Short contextual description
+* Subtle animation
+* Glow effect
+
+Do NOT use fake skill percentages such as:
+
+`Java — 95%`
+
+unless such information explicitly exists in the CV.
+
+Instead, visually communicate the breadth of my technical stack.
+
+---
+
+# ENGINEERING ARCHITECTURE VISUALIZATION
+
+Create a dedicated section that visually represents my Full-Stack engineering capabilities.
+
+Build an animated architecture diagram based on the technologies actually found in my CV.
+
+For example, if supported by my CV:
+
+**Frontend**
+↓
+**REST APIs**
+↓
+**Backend / Microservices**
+↓
+**Databases**
+↓
+**DevOps / Deployment**
+
+Make the connections animated.
+
+The purpose is to visually show how my technologies fit together.
+
+Do not add technologies that are not present in the CV just to complete the diagram.
+
+---
+
+# PROJECTS SECTION
+
+Create a premium section:
+
+**Selected Projects**
+
+I want to showcase **two GitHub projects**.
+
+Design them as large, visually impressive project cards.
+
+Do NOT make them look like simple GitHub links.
+
+Each project must contain:
+
+* Project name
+* Project description
+* Technologies
+* Main features
+* GitHub link
+* Live demo if available
+* A beautiful visual representation of the project's topic
+
+## PROJECT VISUALS
+
+This is very important.
+
+For each project, create a **professional visual/illustration representing what the project actually does**.
+
+For example:
+
+If the project is an API:
+
+`Client → API → Backend → Database`
+
+If it is a dashboard:
+
+Show an abstract modern analytics/dashboard interface.
+
+If it is an e-commerce application:
+
+Show a modern commerce/product interface.
+
+If it is a microservices project:
+
+Show connected service architecture.
+
+If it is an AI project:
+
+Show an elegant AI/data visualization.
+
+The project visuals should be:
+
+* Modern
+* Professional
+* Related to the actual project
+* Consistent with the website design
+* More sophisticated than generic screenshots
+
+Do NOT fabricate project functionality.
+
+If the CV does not contain enough information about the two GitHub projects, create the project components with clearly identifiable editable fields so I can provide the project information later.
+
+Do not invent GitHub URLs.
+
+---
+
+# EDUCATION / ACADEMIC JOURNEY
+
+Create an elegant academic timeline.
+
+Extract my complete academic background from the attached CV.
+
+Display:
+
+* Degree
+* Institution
+* Dates
+* Location
+* Relevant details
+
+Use an animated timeline with academic visual elements.
+
+Make this section feel like an **academic journey**, rather than simply copying the education section of the CV.
+
+---
+
+# CERTIFICATIONS
+
+Create a premium certification section.
+
+Automatically extract all certifications from the CV.
+
+For each certification show:
+
+* Certification name
+* Organization
+* Date
+* Certificate link if available
+
+Use elegant certification cards.
+
+If a certificate URL exists in the CV, create a:
+
+**View Certificate**
+
+button.
+
+Never invent certificate links.
+
+---
+
+# LANGUAGES
+
+Create a clean professional language section using the information from the CV.
+
+Do not create fake percentages.
+
+Use descriptive levels exactly according to the CV.
+
+---
+
+# CONTACT SECTION
+
+Create a strong final CTA.
+
+Example concept:
+
+**Let's Build Something Great**
+
+Use information from the CV to create appropriate contact links.
+
+Include available:
+
+* Email
+* LinkedIn
+* GitHub
+* Other professional links
+
+Do not publicly display unnecessary private information from the CV such as:
+
+* Date of birth
+* Home address
+* Personal identification information
+
+unless I explicitly ask for it.
+
+---
+
+# ANIMATION SYSTEM
+
+Animations are a major part of this portfolio.
+
+Use high-quality modern animations such as:
+
+* Hero entrance animations
+* Text reveal
+* Scroll reveal
+* Timeline animation
+* Animated counters
+* Floating technology icons
+* Interactive cards
+* Project hover animations
+* Animated architecture connections
+* Smooth page transitions
+* Navbar transitions
+* Button micro-interactions
+* Subtle background movement
+
+Use animations intelligently.
+
+The website should feel **alive**, but never chaotic.
+
+The hero can have stronger animation.
+
+Content sections should use subtle animations.
+
+Cards should use micro-interactions.
+
+Background animations should remain very subtle.
+
+Support:
+
+`prefers-reduced-motion`
+
+for accessibility.
+
+---
+
+# DEVELOPER-STYLE DETAILS
+
+Add subtle details that make the website feel custom-built by a software engineer.
+
+Examples:
+
+Animated terminal:
+
+`$ whoami`
+
+`Full-Stack Software Engineer`
+
+or:
+
+`$ git status`
+
+`✓ Ready to build`
+
+or:
+
+`API_STATUS: ONLINE`
+
+Use these only as decorative UI elements.
+
+Add subtle:
+
+* Terminal windows
+* Code snippets
+* API indicators
+* Network nodes
+* Architecture diagrams
+* Git-style visual elements
+
+Do not make the website look like a fake terminal or hacker website.
+
+---
+
+# RESPONSIVE DESIGN
+
+The website must be fully responsive.
+
+### Desktop
+
+Use the full visual experience with:
+
+* Advanced animations
+* Architecture diagrams
+* Large project visuals
+* Interactive timeline
+
+### Tablet
+
+Adapt spacing and layouts.
+
+### Mobile
+
+Create a genuinely mobile-first experience.
+
+Use:
+
+* Hamburger navigation
+* Single-column layouts
+* Touch-friendly cards
+* Optimized animations
+* No horizontal scrolling
+* Proper typography scaling
+
+Do not simply shrink the desktop layout.
+
+---
+
+# ACCESSIBILITY
+
+Implement:
+
+* Semantic HTML
+* Keyboard navigation
+* ARIA labels
+* Good contrast
+* Visible focus states
+* Reduced motion support
+* Accessible language switcher
+* Accessible buttons
+
+---
+
+# SEO
+
+Generate professional SEO metadata based on my CV.
+
+Title format:
+
+**[My Name] | [My Professional Title]**
+
+Create:
+
+* Meta description
+* Open Graph metadata
+* Favicon
+* Appropriate structured data
+* Semantic headings
+
+The SEO description should emphasize my actual technologies and professional positioning from the CV.
+
+---
+
+# TECHNICAL IMPLEMENTATION
+
+Preferred stack:
+
+**React + TypeScript**
+
+Use:
+
+* React
+* TypeScript
+* Tailwind CSS
+* Framer Motion / Motion
+* Lucide React
+
+Use a clean architecture:
+
+`components/`
+`sections/`
+`data/`
+`assets/`
+`i18n/`
+
+Keep my portfolio content in structured data rather than hardcoding it throughout components.
+
+For example:
+
+* Experience data
+* Skills data
+* Projects data
+* Education data
+* Certifications data
+* Social links
+* Translations
+
+This must make it easy for me to update the portfolio later.
+
+---
+
+# IMPORTANT — CV IS THE SOURCE OF TRUTH
+
+The attached CV is the authoritative source for my professional information.
+
+Before generating the website:
+
+1. Read the entire CV.
+2. Extract all relevant professional information.
+3. Organize it logically.
+4. Rewrite it into polished portfolio content.
+5. Do not fabricate missing information.
+6. Do not invent companies, projects, responsibilities, technologies, certifications or links.
+7. Do not exaggerate my experience.
+8. Do not add random technologies simply because they are popular.
+9. Preserve the accuracy of dates and professional history.
+
+The website should make my CV **more impressive visually**, not change what my CV says.
+
+---
+
+# FINAL QUALITY BAR
+
+The final website should look like a portfolio that could realistically be presented to:
+
+* French recruiters
+* European technology companies
+* International software companies
+* Engineering managers
+* Technical recruiters
+
+The first impression should communicate:
+
+**Full-Stack Engineer**
+**Modern Web Development**
+**Backend + Frontend**
+**Microservices**
+**APIs**
+**Professional Experience**
+**Strong Technical Stack**
+
+The website should feel like a **real premium product**, not an AI-generated template.
+
+Prioritize:
+
+**Visual quality + UX + animation + professionalism + technical identity + bilingual support.**

@@ -1,10 +1,11 @@
-# [Project name]
+# Med Lamari — Full-Stack Engineer Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A premium bilingual portfolio for Mohamed (Med) Lamari, presenting his verified experience, technical stack, education, certifications, and selected software projects to European and international recruiters.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/med-lamari-portfolio run dev` — run the portfolio preview
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,23 +23,31 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/med-lamari-portfolio/src/App.tsx` — portfolio sections, bilingual content, interactions, and navigation
+- `artifacts/med-lamari-portfolio/src/index.css` — visual theme, responsive layout, animations, and reduced-motion rules
+- `artifacts/med-lamari-portfolio/public/` — portrait and CV download assets
+- `attached_assets/` — original user-provided brief, CV, and portrait
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Portfolio content is maintained as structured TypeScript data inside the frontend so the experience timeline, skills, projects, education, certifications, languages, and translations remain easy to update.
+- English is the default language; French switches instantly on the client and covers the full visible experience, not only navigation.
+- The CV is the source of truth for professional claims. Private details such as birth date and home address are intentionally excluded.
+- The portfolio is frontend-only for now; the GitHub project cards use the exact supplied repository URLs and avoid claiming unsupported live demos or features.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The site introduces Med as a Full-Stack Software Engineer focused on Java, Spring Boot, Angular, Node.js, microservices, REST APIs, and modern web development. It includes an expandable experience timeline, skills by category, an architecture visualization, two selected GitHub projects, academic journey, certifications, language levels, contact links, and a downloadable CV.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep professional information accurate to the supplied CV; do not invent employers, responsibilities, technologies, dates, certificates, or contact links.
+- Preserve the premium dark engineering-product direction, bilingual English/French support, and responsive/mobile-first behavior.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The current portfolio is a presentation-first frontend and does not require the shared API server or database.
+- Keep the public CV and portrait assets available when changing the download or profile image paths.
 
 ## Pointers
 
