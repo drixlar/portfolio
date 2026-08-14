@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { type CSSProperties, type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   ArrowDownRight,
@@ -98,7 +98,7 @@ const copy = {
     nav: { about: 'À propos', experience: 'Expérience', skills: 'Compétences', projects: 'Projets', journey: 'Parcours', contact: 'Contact' },
     kicker: 'INGÉNIEUR DÉVELOPPEUR FULL-STACK · TUNISIE → EUROPE',
     heroTitle: <>Des systèmes qui <span className="accent">tiennent</span> ensemble.</>,
-    heroSubtitle: 'Je conçois des applications web modulaires et des microservices en Java, PHP, Node.js et Angular — avec 2 ans et demi d’expérience professionnelle.',
+    heroSubtitle: 'Je conçois des applications web modulaires et des microservices en Java, PHP, Node.js et Angular — avec 3 ans d’expérience professionnelle.',
     viewExperience: 'Voir l’expérience',
     viewProjects: 'Projets sélectionnés',
     contactMe: 'Me contacter',
@@ -244,6 +244,41 @@ const languages = [
   { name: { en: 'English', fr: 'Anglais' }, level: { en: 'Technical / Professional', fr: 'Technique / Professionnel' } },
 ] as const;
 
+type RevealProps = {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  direction?: 'up' | 'left' | 'right' | 'scale';
+};
+
+function ScrollReveal({ children, className = '', delay = 0, direction = 'up' }: RevealProps) {
+  const [isVisible, setIsVisible] = useState(false);
+  const revealRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const node = revealRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(node);
+      }
+    }, { threshold: 0.14, rootMargin: '0px 0px -7% 0px' });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={revealRef}
+      className={`scroll-reveal reveal-${direction} ${isVisible ? 'is-visible' : ''} ${className}`}
+      style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}
+    >
+      {children}
+    </div>
+  );
+}
+
 function Home() {
   const [language, setLanguage] = useState<Language>('en');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -346,89 +381,91 @@ function Home() {
         </section>
 
         <section id="about" className="section-block" aria-labelledby="about-title">
-          <div className="container-wide about-layout">
+          <ScrollReveal className="container-wide about-layout">
             <div>
               <div className="eyebrow">{t.aboutEyebrow}</div>
               <h2 id="about-title" className="section-heading">{t.aboutTitle}</h2>
               <p className="about-copy">{t.aboutCopy}</p>
               <p className="about-copy">{t.aboutCopy2}</p>
-              <div className="stat-grid">
-                {t.stats.map(([number, label], index) => <div className="stat-card" key={label} data-testid={`stat-card-${index}`}><div className="stat-number">{number}</div><div className="stat-label">{label}</div></div>)}
+              <div className="stat-grid stagger-grid">
+                {t.stats.map(([number, label], index) => <div className="stat-card stagger-item" key={label} style={{ '--stagger-delay': `${index * 90}ms` } as CSSProperties} data-testid={`stat-card-${index}`}><div className="stat-number">{number}</div><div className="stat-label">{label}</div></div>)}
               </div>
             </div>
             <div className="about-panel" aria-label="Profile details">
               {t.terminalLines.map(([key, value]) => <div className="terminal-line" key={key}><span className="prompt">$</span><span>{key}</span><span className="value">{value}</span></div>)}
               <div className="signature">// thoughtful systems, shipped with care</div>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         <section id="experience" className="section-block" aria-labelledby="experience-title">
-          <div className="container-wide">
+          <ScrollReveal className="container-wide">
             <div className="experience-intro"><div><div className="eyebrow">{t.experienceEyebrow}</div><h2 id="experience-title" className="section-heading">{t.experienceTitle}</h2></div><p className="section-copy">{t.experienceCopy}</p></div>
             <div className="timeline">
               {experiences.map((item, index) => {
                 const isOpen = expanded.has(index);
-                return <article className="timeline-item" key={item.company} data-testid={`experience-card-${index}`}>
-                  <span className="timeline-node" aria-hidden="true" />
-                  <div className={`timeline-card ${isOpen ? 'open' : ''}`}>
-                    <button className="timeline-summary" onClick={() => toggleExperience(index)} aria-expanded={isOpen} data-testid={`button-expand-experience-${index}`}>
-                      <div><div className="experience-period">{item.dates} {item.current ? `· ${t.current}` : ''}</div><h3 className="experience-role">{item.role[language]}</h3><div className="experience-company"><strong>{item.company}</strong> · {item.location[language]}</div></div>
-                      <ChevronDown className="expand-icon" size={18} />
-                    </button>
-                    {isOpen && <div className="timeline-details"><div><div className="eyebrow">{t.responsibilities}</div><ul>{item.points[language].map((point) => <li key={point}>{point}</li>)}</ul></div><div><div className="eyebrow">{t.stack}</div><div className="stack-list">{item.tags.map((tag) => <span className="stack-tag" key={tag}>{tag}</span>)}</div></div></div>}
-                  </div>
-                </article>;
+                return <ScrollReveal className="timeline-item" direction={index % 2 === 0 ? 'left' : 'right'} delay={index * 70} key={item.company}>
+                  <article data-testid={`experience-card-${index}`}>
+                    <span className="timeline-node" aria-hidden="true" />
+                    <div className={`timeline-card ${isOpen ? 'open' : ''}`}>
+                      <button className="timeline-summary" onClick={() => toggleExperience(index)} aria-expanded={isOpen} data-testid={`button-expand-experience-${index}`}>
+                        <div><div className="experience-period">{item.dates} {item.current ? `· ${t.current}` : ''}</div><h3 className="experience-role">{item.role[language]}</h3><div className="experience-company"><strong>{item.company}</strong> · {item.location[language]}</div></div>
+                        <ChevronDown className="expand-icon" size={18} />
+                      </button>
+                      {isOpen && <div className="timeline-details detail-reveal"><div><div className="eyebrow">{t.responsibilities}</div><ul>{item.points[language].map((point) => <li key={point}>{point}</li>)}</ul></div><div><div className="eyebrow">{t.stack}</div><div className="stack-list">{item.tags.map((tag) => <span className="stack-tag" key={tag}>{tag}</span>)}</div></div></div>}
+                    </div>
+                  </article>
+                </ScrollReveal>;
               })}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         <section id="skills" className="section-block" aria-labelledby="skills-title">
-          <div className="container-wide">
+          <ScrollReveal className="container-wide">
             <div className="skills-intro"><div><div className="eyebrow">{t.skillsEyebrow}</div><h2 id="skills-title" className="section-heading">{t.skillsTitle}</h2></div><p className="section-copy">{t.skillsCopy}</p></div>
             <div className="skills-layout">
-              <div>{skillGroups.map((group, index) => { const Icon = group.icon; return <div className="skill-category" key={group.title.en}><h3 className="category-title"><Icon size={15} />{group.title[language]}<span>0{index + 1}</span></h3><div className="skill-tags">{group.values.map((value) => <span className="skill-tag" key={value} data-testid={`skill-${value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}>{value}</span>)}</div></div>; })}</div>
-              <aside className="skills-note"><h3>{t.skillNoteTitle}</h3><p>{t.skillNoteCopy}</p><code>{t.skillNoteCode.map(([key, value]) => <span key={key}><b>{key}</b> :: {value}<br /></span>)}</code></aside>
+              <ScrollReveal className="skill-groups" direction="left"><div>{skillGroups.map((group, index) => { const Icon = group.icon; return <div className="skill-category stagger-item" key={group.title.en} style={{ '--stagger-delay': `${index * 90}ms` } as CSSProperties}><h3 className="category-title"><Icon size={15} />{group.title[language]}<span>0{index + 1}</span></h3><div className="skill-tags">{group.values.map((value) => <span className="skill-tag" key={value} data-testid={`skill-${value.replace(/[^a-z0-9]/gi, '-').toLowerCase()}`}>{value}</span>)}</div></div>; })}</div></ScrollReveal>
+              <ScrollReveal className="skills-note" direction="right"><h3>{t.skillNoteTitle}</h3><p>{t.skillNoteCopy}</p><code>{t.skillNoteCode.map(([key, value]) => <span key={key}><b>{key}</b> :: {value}<br /></span>)}</code></ScrollReveal>
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         <section className="section-block" aria-labelledby="architecture-title">
           <div className="container-wide">
-            <div className="architecture">
+            <ScrollReveal className="architecture" direction="scale">
               <div className="architecture-header"><div><div className="eyebrow">{t.architectureEyebrow}</div><h2 id="architecture-title" className="section-heading">{t.architectureTitle}</h2><p className="section-copy">{t.architectureCopy}</p></div><div className="architecture-status"><span className="pulse-dot" />{t.apiOnline}</div></div>
               <div className="architecture-canvas"><div className="arch-lines" /><div className="arch-flow" />{t.architectureNodes.map(([number, title, detail]) => <div className="arch-node" key={number}><span className="arch-index">{number}</span><div><h4>{title}</h4><p>{detail}</p></div></div>)}</div>
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
         <section id="projects" className="section-block" aria-labelledby="projects-title">
-          <div className="container-wide">
+          <ScrollReveal className="container-wide">
             <div className="eyebrow">{t.projectsEyebrow}</div><h2 id="projects-title" className="section-heading">{t.projectsTitle}</h2><p className="section-copy">{t.projectsCopy}</p>
-            <div className="projects-grid">
-              {projects.map((project, index) => <article className="project-card" key={project.name} data-testid={`project-card-${index}`}>
+            <div className="projects-grid stagger-grid">
+              {projects.map((project, index) => <article className="project-card stagger-item" style={{ '--stagger-delay': `${index * 130}ms` } as CSSProperties} key={project.name} data-testid={`project-card-${index}`}>
                 <div className={`project-visual ${project.tone === 'engine' ? 'engine' : ''}`}><div className="repo-diagram"><span className="repo-box">{index === 0 ? 'LIST' : 'ENGINE'}</span><span className="repo-arrow">→</span><span className="repo-box">{index === 0 ? 'REPOSITORY' : 'SOURCE'}</span></div></div>
                 <div className="project-label">{t.repository} 0{index + 1}</div><h3 className="project-title">{project.name}</h3><p className="project-copy">{t.projectNote}</p>
                 <div className="project-footer"><span className="skill-tag">{index === 0 ? 'React · repository' : 'Java · Angular · repository'}</span><a className="project-link" href={project.url} target="_blank" rel="noreferrer" data-testid={`link-project-${index}`}>{t.openRepository} <ArrowUpRight size={13} /></a></div>
               </article>)}
             </div>
-          </div>
+          </ScrollReveal>
         </section>
 
         <section id="journey" className="section-block" aria-labelledby="journey-title">
-          <div className="container-wide">
+          <ScrollReveal className="container-wide">
             <div className="eyebrow">{t.journeyEyebrow}</div><h2 id="journey-title" className="section-heading">{t.journeyTitle}</h2>
             <div className="journey-grid">
-              <div><h3 className="eyebrow" style={{ marginTop: '42px' }}>{t.education}</h3><div className="education-list">{education.map((item) => <div className="education-item" key={item.school}><div className="education-date">{item.dates}</div><div className="education-degree">{item.degree[language]}</div><div className="education-school">{item.school} · {item.location}</div></div>)}</div></div>
-              <div><h3 className="eyebrow" style={{ marginTop: '42px' }}>{t.certifications}</h3><div className="cert-list">{certifications.map((cert) => <div className="cert-card" key={cert.name.en}><div className="cert-org">{cert.org}</div><div className="cert-name">{cert.name[language]}</div><div className="cert-date">{cert.date}</div>{cert.url && <a className="cert-link" href={cert.url} target="_blank" rel="noreferrer" data-testid={`link-certificate-${cert.org}-${cert.date}`}>{t.viewCertificate}<ExternalLink size={12} /></a>}</div>)}</div></div>
+              <ScrollReveal direction="left"><div><h3 className="eyebrow" style={{ marginTop: '42px' }}>{t.education}</h3><div className="education-list">{education.map((item, index) => <div className="education-item stagger-item" style={{ '--stagger-delay': `${index * 100}ms` } as CSSProperties} key={item.school}><div className="education-date">{item.dates}</div><div className="education-degree">{item.degree[language]}</div><div className="education-school">{item.school} · {item.location}</div></div>)}</div></div></ScrollReveal>
+              <ScrollReveal direction="right"><div><h3 className="eyebrow" style={{ marginTop: '42px' }}>{t.certifications}</h3><div className="cert-list">{certifications.map((cert, index) => <div className="cert-card stagger-item" style={{ '--stagger-delay': `${index * 100}ms` } as CSSProperties} key={cert.name.en}><div className="cert-org">{cert.org}</div><div className="cert-name">{cert.name[language]}</div><div className="cert-date">{cert.date}</div>{cert.url && <a className="cert-link" href={cert.url} target="_blank" rel="noreferrer" data-testid={`link-certificate-${cert.org}-${cert.date}`}>{t.viewCertificate}<ExternalLink size={12} /></a>}</div>)}</div></div></ScrollReveal>
             </div>
-            <h3 className="eyebrow" style={{ marginTop: '74px' }}>{t.languages}</h3><div className="language-strip">{languages.map((item) => <div className="language-item" key={item.name.en}><strong>{item.name[language]}</strong><span>{item.level[language]}</span></div>)}</div>
-          </div>
+            <h3 className="eyebrow" style={{ marginTop: '74px' }}>{t.languages}</h3><ScrollReveal className="language-strip">{languages.map((item, index) => <div className="language-item stagger-item" style={{ '--stagger-delay': `${index * 100}ms` } as CSSProperties} key={item.name.en}><strong>{item.name[language]}</strong><span>{item.level[language]}</span></div>)}</ScrollReveal>
+          </ScrollReveal>
         </section>
 
         <section id="contact" className="contact-section" aria-labelledby="contact-title">
-          <div className="container-wide"><div className="contact-panel"><div><div className="eyebrow">{t.contactEyebrow}</div><h2 id="contact-title" className="contact-title">{t.contactTitle}</h2><p className="contact-copy">{t.contactCopy}</p></div><div className="contact-links"><a className="contact-link" href="mailto:mohamedlaamari1998@gmail.com" data-testid="link-contact-email"><Mail size={16} /><span>{t.email}</span><span className="arrow">mohamedlaamari1998@gmail.com</span></a><a className="contact-link" href="tel:+21652677222" data-testid="link-contact-phone"><Phone size={16} /><span>{t.phone}</span><span className="arrow">+216 52 677 222</span></a><a className="contact-link" href={projects[0].url} target="_blank" rel="noreferrer" data-testid="link-contact-github"><Github size={16} /><span>{t.repositories}</span><span className="arrow"><ArrowUpRight size={14} /></span></a></div></div></div>
+          <ScrollReveal className="container-wide" direction="scale"><div className="contact-panel"><div><div className="eyebrow">{t.contactEyebrow}</div><h2 id="contact-title" className="contact-title">{t.contactTitle}</h2><p className="contact-copy">{t.contactCopy}</p></div><div className="contact-links"><a className="contact-link" href="mailto:mohamedlaamari1998@gmail.com" data-testid="link-contact-email"><Mail size={16} /><span>{t.email}</span><span className="arrow">mohamedlaamari1998@gmail.com</span></a><a className="contact-link" href="tel:+21652677222" data-testid="link-contact-phone"><Phone size={16} /><span>{t.phone}</span><span className="arrow">+216 52 677 222</span></a><a className="contact-link" href={projects[0].url} target="_blank" rel="noreferrer" data-testid="link-contact-github"><Github size={16} /><span>{t.repositories}</span><span className="arrow"><ArrowUpRight size={14} /></span></a></div></div></ScrollReveal>
         </section>
       </main>
       <footer className="site-footer"><div className="container-wide footer-row"><span><span className="footer-mark">ML</span> · {t.footer}</span><span>© {year} · {t.footerRight}</span></div></footer>
