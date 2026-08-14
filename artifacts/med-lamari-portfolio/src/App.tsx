@@ -55,7 +55,7 @@ const copy = {
     aboutCopy: <><strong>Mohamed Lamari</strong> is a Full-Stack Software Engineer working across backend services, frontend systems and the connective tissue between them. His experience spans high-volume platforms, modular interfaces and REST APIs built with security and maintainability in mind.</>,
     aboutCopy2: 'From Monastir to remote product teams in Canada and Switzerland, he brings an Agile/SCRUM mindset, CI/CD habits and a calm focus on making complex systems legible.',
     terminalLines: [['whoami', 'Full-Stack Software Engineer'], ['scope', 'web apps · microservices · APIs'], ['signal', 'ready for the next challenge']],
-    stats: [['3', 'years professional experience'], ['05', 'professional roles'], ['16+', 'technologies listed'], ['03', 'certifications']],
+    stats: [],
     experienceEyebrow: '02 / Experience',
     experienceTitle: <>A timeline of <em>shipping.</em></>,
     experienceCopy: 'Five environments, from summer PHP foundations to full-stack systems serving thousands of users. Expand a role to inspect the actual scope.',
@@ -87,7 +87,7 @@ const copy = {
     viewCertificate: 'View certificate',
     contactEyebrow: '07 / Contact',
     contactTitle: <>Let’s make the next system <em>clearer.</em></>,
-    contactCopy: 'For a product team, engineering conversation or opportunity in Europe and beyond, reach out directly.',
+    contactCopy: 'For an opportunity in Europe or Tunisia and beyond, reach out directly.',
     email: 'Email',
     phone: 'Phone',
     repositories: 'GitHub repositories',
@@ -110,7 +110,7 @@ const copy = {
     aboutCopy: <><strong>Mohamed Lamari</strong> est ingénieur développeur Full-Stack. Il travaille sur les services backend, les interfaces frontend et les liens entre les deux. Son expérience couvre des plateformes à forte volumétrie, des interfaces modulaires et des APIs REST pensées pour rester sûres et maintenables.</>,
     aboutCopy2: 'De Monastir aux équipes produit à distance au Canada et en Suisse, il apporte une culture Agile/SCRUM, des habitudes CI/CD et une attention constante à la lisibilité des systèmes complexes.',
     terminalLines: [['whoami', 'Ingénieur développeur Full-Stack'], ['scope', 'applications web · microservices · APIs'], ['signal', 'prêt pour le prochain défi']],
-    stats: [['3', 'ans d’expérience professionnelle'], ['05', 'expériences professionnelles'], ['16+', 'technologies listées'], ['03', 'certifications']],
+    stats: [],
     experienceEyebrow: '02 / Expérience',
     experienceTitle: <>Une chronologie de la <em>mise en production.</em></>,
     experienceCopy: 'Cinq environnements, des fondations PHP aux systèmes Full-Stack utilisés par plusieurs milliers d’utilisateurs. Ouvrez un poste pour voir son périmètre.',
@@ -387,9 +387,6 @@ function Home() {
               <h2 id="about-title" className="section-heading">{t.aboutTitle}</h2>
               <p className="about-copy">{t.aboutCopy}</p>
               <p className="about-copy">{t.aboutCopy2}</p>
-              <div className="stat-grid stagger-grid">
-                {t.stats.map(([number, label], index) => <div className="stat-card stagger-item" key={label} style={{ '--stagger-delay': `${index * 90}ms` } as CSSProperties} data-testid={`stat-card-${index}`}><div className="stat-number">{number}</div><div className="stat-label">{label}</div></div>)}
-              </div>
             </div>
             <div className="about-panel" aria-label="Profile details">
               {t.terminalLines.map(([key, value]) => <div className="terminal-line" key={key}><span className="prompt">$</span><span>{key}</span><span className="value">{value}</span></div>)}
