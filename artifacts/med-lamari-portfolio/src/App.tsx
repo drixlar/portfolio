@@ -156,7 +156,7 @@ const experiences = [
     role: { en: 'Full-Stack Java, PHP, Node.js, Angular Engineer', fr: 'Ingénieur développeur Full-Stack Java, PHP, Node.js, Angular' },
     company: 'Fanvoice (Explora Analytics)',
     location: { en: 'Monastir, Tunisia', fr: 'Monastir, Tunisie' },
-    dates: '01/05/2024 – 04/05/2026',
+    dates: '01/05/2024 – 04/08/2026',
     current: true,
     points: {
       en: ['Backend microservices with Spring Boot and Node.js.', 'Reusable Angular, JavaScript and jQuery components.', 'Secure REST APIs with JWT, permissions and sessions.', 'MongoDB optimization through indexing and aggregations.', 'CI/CD and automated tests with JUnit, Mocha and Jest.', 'Platforms used by several thousand users; collaboration with SNCF, Bouygues Telecom and Crédit Mutuel.'],
