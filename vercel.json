@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "installCommand": "corepack enable && corepack prepare pnpm@latest --activate && pnpm install --no-optional --shamefully-hoist --no-frozen-lockfile --ignore-scripts",
+  "installCommand": "corepack enable && corepack prepare pnpm@10.24.0 --activate && pnpm install --no-optional --shamefully-hoist --no-frozen-lockfile --ignore-scripts",
   "buildCommand": "pnpm --filter @workspace/med-lamari-portfolio run build",
   "builds": [
     {
