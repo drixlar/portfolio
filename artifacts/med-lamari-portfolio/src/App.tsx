@@ -87,7 +87,7 @@ const copy = {
     viewCertificate: 'View certificate',
     contactEyebrow: '07 / Contact',
     contactTitle: <>Let’s make the next system <em>clearer.</em></>,
-    contactCopy: 'For an opportunity in Europe or Tunisia and beyond, reach out directly.',
+    contactCopy: 'For an opportunity in Europe or tunisia and beyond, reach out directly.',
     email: 'Email',
     phone: 'Phone',
     repositories: 'GitHub repositories',
